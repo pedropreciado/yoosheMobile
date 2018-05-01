@@ -1,7 +1,7 @@
 import {
   RECEIVE_CURRENT_USER,
   RECEIVE_ERRORS
-} from '../actions/session_action';
+} from '../actions/session_actions';
 import merge from 'lodash';
 
 const defaultState = {
@@ -9,7 +9,7 @@ const defaultState = {
   errors: ''
 }
 
-const SessionReducer = (oldState = defaultState, action) {
+const SessionReducer = (oldState = defaultState, action) => {
   Object.freeze(oldState);
 
   switch (action.type) {

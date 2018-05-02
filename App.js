@@ -13,9 +13,6 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
       <View style={styles.container}>
-          <Text>
-            Plop
-          </Text>
           <SessionFormContainer />
       </View>
     </Provider>
@@ -29,6 +26,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingVertical: 40
   },
   text: {
     color: 'black'

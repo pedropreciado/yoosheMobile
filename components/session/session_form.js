@@ -13,7 +13,7 @@ class SessionForm extends React.Component {
     super(props);
 
     this.state = {
-      formType: 'signup'
+      formType: 'login'
     }
   }
 
@@ -23,7 +23,7 @@ class SessionForm extends React.Component {
           <View style={{
               flexDirection: 'row',
               justifyContent: 'space-around',
-              paddingLeft: 125,
+              paddingLeft: 100,
               paddingVertical: 20,
               backgroundColor: 'rgba(255, 255, 255, .6)',
             }}>
@@ -42,7 +42,7 @@ class SessionForm extends React.Component {
               justifyContent: 'center',
               alignItems: 'center',
               paddingLeft: 10,
-              paddingRight: 5,
+              paddingRight: 10,
               borderLeftWidth: .5,
               borderColor: 'rgba(31, 31, 31, .4)',
              }}
@@ -52,6 +52,15 @@ class SessionForm extends React.Component {
                         : 'login'
             })}
             >
+
+            <Text>
+              {
+                this.props.currentUser
+                ? this.props.currentUser.username
+                : 'poop'
+              }
+            </Text>
+
           <Text
             style={{
               fontSize: 15,
@@ -67,7 +76,10 @@ class SessionForm extends React.Component {
       </View>
       {
         this.state.formType === 'login'
-        ? ( <LoginForm login={this.props.login} /> )
+        ? ( <LoginForm
+          login={this.props.login}
+          history={this.props.history}
+           /> )
         : ( <SignupForm signup={this.props.signup} /> )
       }
       </View>

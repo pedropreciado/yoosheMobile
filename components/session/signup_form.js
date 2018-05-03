@@ -116,7 +116,7 @@ class SignupForm extends React.Component {
         large
         title='signup'
         backgroundColor='rgba(255, 255, 255, .6)'
-        fontSize='30'
+        fontSize={30}
         fontWeight='100'
         color='black'
         onPress={() => this.handleSubmit()}

@@ -4,16 +4,33 @@ import {
   StyleSheet,
   Text,
   View,
-  ImageBackground } from 'react-native';
+  ImageBackground
+} from 'react-native';
+import {
+  NativeRouter,
+  Redirect,
+  Switch,
+  Link,
+  Route
+} from 'react-router-native';
 
 import configureStore from './store/store';
 import SessionFormContainer from './components/session/session_form_container';
+import { AuthRoute, ProtectedRoute } from './utils/route_util';
 
 let store = configureStore();
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLoggedIn: false
+    }
+  }
 
   render() {
+
     return (
       <Provider store={store}>
       <View style={styles.container}>
@@ -21,7 +38,17 @@ export default class App extends React.Component {
             source={require('./assets/images/pink.jpg')}
             style={styles.backgroundImage}
             >
-          <SessionFormContainer />
+
+            <NativeRouter>
+              <Switch>
+                <Route exact path='/' component={SessionFormContainer} />
+                <AuthRoute path='/auth' component={SessionFormContainer} />
+                <ProtectedRoute path='/places' component={() => (
+                    <View><Text>poop</Text></View>
+                  )} />
+              </Switch>
+            </NativeRouter>
+
           </ImageBackground>
       </View>
     </Provider>

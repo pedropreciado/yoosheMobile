@@ -12,6 +12,9 @@ export const login = (user) => dispatch => {
         dispatch(receiveCurrentUser(data));
       }
     })
+    .catch((err) => {
+      console.log(err);
+    })
 }
 
 export const logout = () => dispatch => {

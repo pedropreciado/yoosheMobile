@@ -21,6 +21,8 @@ class LoginForm extends React.Component {
 
   handleSubmit() {
     this.props.login(this.state);
+    
+    this.props.history.push('/places')
   }
 
   render() {
@@ -36,7 +38,6 @@ class LoginForm extends React.Component {
           justifyContent: 'center',
           backgroundColor: 'transparent'
         }}>
-
         <View style={{
             paddingBottom: 20,
             backgroundColor: 'transparent'
@@ -52,7 +53,9 @@ class LoginForm extends React.Component {
           containerStyle={{
             backgroundColor: 'transparent',
             paddingVertical: 10,
+            paddingLeft: 20
           }}
+          underlineColorAndroid="transparent"
           onChangeText={(text) =>
           this.handleChange('loginemail', text.toLowerCase())
         }/>
@@ -65,13 +68,15 @@ class LoginForm extends React.Component {
           secureTextEntry={true}
           inputStyle={{
             color: 'white',
-            fontSize: 30
+            fontSize: 30,
+            paddingLeft: 20
           }}
           containerStyle={{
             backgroundColor: 'transparent',
             paddingVertical: 10,
             paddingLeft: 20,
           }}
+          underlineColorAndroid="transparent"
           onChangeText={ (text) => {
             this.handleChange('loginpassword', text)
           }}
@@ -83,9 +88,11 @@ class LoginForm extends React.Component {
       large
       title='login'
       backgroundColor='rgba(255, 255, 255, .6)'
-      fontSize='30'
+      fontSize={30}
       fontWeight='100'
       color='black'
+      position='fixed'
+      bottom={0}
       onPress={() => this.handleSubmit()}
       />
       </View>

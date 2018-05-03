@@ -6,13 +6,14 @@ import {
   TouchableOpacity } from 'react-native';
 
 import LoginForm from './login_form';
+import SignupForm from './signup_form';
 
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      formType: 'login'
+      formType: 'signup'
     }
   }
 
@@ -21,12 +22,10 @@ class SessionForm extends React.Component {
       <View>
           <View style={{
               flexDirection: 'row',
-              // alignItems: 'baseline',
               justifyContent: 'space-around',
-              paddingLeft: 120,
+              paddingLeft: 125,
               paddingVertical: 20,
               backgroundColor: 'rgba(255, 255, 255, .6)',
-
             }}>
 
           <Text style={{
@@ -43,6 +42,7 @@ class SessionForm extends React.Component {
               justifyContent: 'center',
               alignItems: 'center',
               paddingLeft: 10,
+              paddingRight: 5,
               borderLeftWidth: .5,
               borderColor: 'rgba(31, 31, 31, .4)',
              }}
@@ -55,6 +55,7 @@ class SessionForm extends React.Component {
           <Text
             style={{
               fontSize: 15,
+              fontWeight: '100'
             }}
             >
               { this.state.formType === 'login'
@@ -64,9 +65,11 @@ class SessionForm extends React.Component {
           </Text>
         </TouchableOpacity>
       </View>
-      <LoginForm
-      login={this.props.login}
-      />
+      {
+        this.state.formType === 'login'
+        ? ( <LoginForm login={this.props.login} /> )
+        : ( <SignupForm signup={this.props.signup} /> )
+      }
       </View>
     )
   }

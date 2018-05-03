@@ -70,7 +70,7 @@ class LoginForm extends React.Component {
           containerStyle={{
             backgroundColor: 'transparent',
             paddingVertical: 10,
-            paddingLeft: 20
+            paddingLeft: 20,
           }}
           onChangeText={ (text) => {
             this.handleChange('loginpassword', text)

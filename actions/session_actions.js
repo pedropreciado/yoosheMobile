@@ -31,7 +31,7 @@ export const signup = (user) => dispatch => {
 }
 
 const receiveCurrentUser = (currentUser) => ({
-  type: 'RECEIVE_CURRENT_USER',
+  type: RECEIVE_CURRENT_USER,
   currentUser
 })
 

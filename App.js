@@ -16,19 +16,12 @@ import {
 
 import configureStore from './store/store';
 import SessionFormContainer from './components/session/session_form_container';
+import LandingContainer from './components/landing/landing_container';
 import { AuthRoute, ProtectedRoute } from './utils/route_util';
 
 let store = configureStore();
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isLoggedIn: false
-    }
-  }
-
   render() {
 
     return (
@@ -41,7 +34,7 @@ export default class App extends React.Component {
 
             <NativeRouter>
               <Switch>
-                <Route exact path='/' component={SessionFormContainer} />
+                <Route exact path='/' component={LandingContainer} />
                 <AuthRoute path='/auth' component={SessionFormContainer} />
                 <ProtectedRoute path='/places' component={() => (
                     <View><Text>poop</Text></View>

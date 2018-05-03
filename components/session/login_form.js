@@ -27,39 +27,65 @@ class LoginForm extends React.Component {
     return (
       <View style={{
           flex: 1,
-          justifyContent: 'space-between'
+          justifyContent: 'center',
+          backgroundColor: 'transparent'
         }}>
 
       <View style={{
           flex: 1,
-          marginTop: 50,
-          height: 20,
           justifyContent: 'center',
-          borderWidth: .5,
-          height: 40
+          backgroundColor: 'transparent'
         }}>
-        <View style={{ paddingBottom: 50 }}>
-            <FormInput
-              placeholder='email'
-              onChangeText={ (text) =>
-              this.handleChange('loginemail', text.toLowerCase())
-            }/>
-            </View>
 
-            <View>
-            <FormInput
-              placeholder='password'
-              secureTextEntry={true}
-              onChangeText={ (text) => {
-                this.handleChange('loginpassword', text)
-              }}
-            />
+        <View style={{
+            paddingBottom: 20,
+            backgroundColor: 'transparent'
+          }}>
+        <FormInput
+          placeholder='email'
+          placeholderTextColor='rgba(255, 255, 255, .4)'
+          inputStyle={{
+            color: 'white',
+            fontSize: 30,
+            paddingLeft: 20
+          }}
+          containerStyle={{
+            backgroundColor: 'transparent',
+            paddingVertical: 10,
+          }}
+          onChangeText={(text) =>
+          this.handleChange('loginemail', text.toLowerCase())
+        }/>
+        </View>
+
+        <View>
+        <FormInput
+          placeholder='password'
+          placeholderTextColor='rgba(255, 255, 255, .4)'
+          secureTextEntry={true}
+          inputStyle={{
+            color: 'white',
+            fontSize: 30
+          }}
+          containerStyle={{
+            backgroundColor: 'transparent',
+            paddingVertical: 10,
+            paddingLeft: 20
+          }}
+          onChangeText={ (text) => {
+            this.handleChange('loginpassword', text)
+          }}
+        />
         </View>
       </View>
 
       <Button
       large
       title='login'
+      backgroundColor='rgba(255, 255, 255, .6)'
+      fontSize='30'
+      fontWeight='100'
+      color='black'
       onPress={() => this.handleSubmit()}
       />
       </View>

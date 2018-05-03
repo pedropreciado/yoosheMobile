@@ -1,5 +1,9 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import {
+  View,
+  Text,
+  Button,
+  TouchableOpacity } from 'react-native';
 
 import LoginForm from './login_form';
 
@@ -17,30 +21,49 @@ class SessionForm extends React.Component {
       <View>
           <View style={{
               flexDirection: 'row',
-              alignItems: 'baseline',
+              // alignItems: 'baseline',
               justifyContent: 'space-around',
-              backgroundColor: 'grey',
-              paddingLeft: 120
+              paddingLeft: 120,
+              paddingVertical: 20,
+              backgroundColor: 'rgba(255, 255, 255, .6)',
+
             }}>
 
           <Text style={{
               fontSize: 50,
-              textAlign: 'center'
+              textAlign: 'center',
+              color: 'black',
+              fontWeight: '100'
             }}>
             yooshe
           </Text>
 
-          <Button
-            title='signup'
-            style={{ backgroundColor: 'magenta' }}
+          <TouchableOpacity
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              paddingLeft: 10,
+              borderLeftWidth: .5,
+              borderColor: 'rgba(31, 31, 31, .4)',
+             }}
             onPress={() => this.setState({
               formType: this.state.formType === 'login'
                         ? 'signup'
                         : 'login'
             })}
-            />
-
-        </View>
+            >
+          <Text
+            style={{
+              fontSize: 15,
+            }}
+            >
+              { this.state.formType === 'login'
+                ? 'signup'
+                : 'login'
+              }
+          </Text>
+        </TouchableOpacity>
+      </View>
       <LoginForm
       login={this.props.login}
       />

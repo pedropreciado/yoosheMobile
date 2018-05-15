@@ -10,7 +10,7 @@ const PlaceReducer = (oldState = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_FAVORITE_PLACES:
-      return merge({}, oldState, actions.places)
+      return merge({}, oldState, action.places)
     case RECEIVE_FAVORITE_PLACE:
     let freshState = merge({}, oldState);
 

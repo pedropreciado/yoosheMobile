@@ -21,8 +21,8 @@ class Landing extends React.Component {
   }
 
   renderScreen() {
-    this.props.history.push('/places')
     if (this.props.currentUser) {
+      this.props.history.push('/places')
       return (
         <Text>
         logging in
@@ -52,23 +52,13 @@ class Landing extends React.Component {
   }
 
   render() {
-    if (this.state.searching) {
-      return (
-        <View>
-          <Text>
-            yooshe
-          </Text>
-        </View>
-      )
-    } else {
-      return (
-        <View>
-        {
-          this.renderScreen()
-        }
-        </View>
-      )
-    }
+    return (
+      <View>
+        <Text>
+          yooshe
+        </Text>
+      </View>
+    )
   }
 }
 

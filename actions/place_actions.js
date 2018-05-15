@@ -44,20 +44,20 @@ export const refresh = (id) => dispatch => {
     })
 }
 
-const receiveFavoritePlaces = (places) => {
+const receiveFavoritePlaces = (places) => ({
   type: RECEIVE_FAVORITE_PLACES,
   places
-}
+})
 
-const receiveFavoritePlace = (place) => {
+const receiveFavoritePlace = (place) => ({
   type: RECEIVE_FAVORITE_PLACE,
   place
-}
+})
 
-const receiveSearchResults = (results) => {
+const receiveSearchResults = (results) => ({
   type:RECEIVE_SEARCH_RESULTS,
   place
-}
+})
 
 const removeFavoritePlace = (place) => ({
   type: REMOVE_FAVORITE_PLACE,

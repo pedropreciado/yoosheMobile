@@ -2,9 +2,9 @@ const axios = require('axios');
 
 
 
-let favoritesRoute = 'localhost:3001/api/favorites?';
-let placesRoute = 'localhost:3001/api/places?';
-let refreshRoute = 'localhost:3001/api/refresh?';
+let favoritesRoute = 'http://localhost:3001/api/favorites?';
+let placesRoute = 'http://localhost:3001/api/places?';
+let refreshRoute = 'http://localhost:3001/api/refresh?';
 
 export const fetchFavorites = (id) => {
   return axios.get(

@@ -2,10 +2,13 @@ import { connect } from 'react-redux';
 import { fetchLocalUser } from '../../actions/session_actions';
 import Landing from './landing';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state, { path }) => {
   let currentUser = state.session.currentUser;
 
-  return { currentUser };
+  return {
+    currentUser,
+    path
+   };
 }
 
 const mapDispatchToProps = (dispatch) => {

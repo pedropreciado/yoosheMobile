@@ -4,7 +4,6 @@ import {
   StyleSheet,
   Text,
   View,
-  ImageBackground
 } from 'react-native';
 import {
   NativeRouter,
@@ -15,9 +14,10 @@ import {
 } from 'react-router-native';
 
 import configureStore from './store/store';
+import { AuthRoute, ProtectedRoute } from './utils/route_util';
 import SessionFormContainer from './components/session/session_form_container';
 import LandingContainer from './components/landing/landing_container';
-import { AuthRoute, ProtectedRoute } from './utils/route_util';
+import PlaceIndexContainer from './components/place/place_index_container';
 
 let store = configureStore();
 
@@ -27,22 +27,15 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
       <View style={styles.container}>
-          <ImageBackground
-            source={require('./assets/images/pink.jpg')}
-            style={styles.backgroundImage}
-            >
 
             <NativeRouter>
               <Switch>
-                <Route exact path='/' component={LandingContainer} />
+                <AuthRoute exact path='/' component={LandingContainer} />
                 <AuthRoute path='/auth' component={SessionFormContainer} />
-                <ProtectedRoute path='/places' component={() => (
-                    <View><Text>poop</Text></View>
-                  )} />
+                <ProtectedRoute path='/places' component={PlaceIndexContainer}/>
               </Switch>
             </NativeRouter>
 
-          </ImageBackground>
       </View>
     </Provider>
     );
@@ -55,9 +48,9 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 40
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    // paddingVertical: 40
   },
   text: {
     color: 'black'

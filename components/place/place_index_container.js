@@ -3,12 +3,15 @@ import {
   addFavorite,
   fetchSearchResults,
   deleteFavorite
-} from '../../action/place_actions';
+} from '../../actions/place_actions';
 import { connect } from 'react-redux';
 import PlaceIndex from './place_index';
 
 const mapStateToProps = (state) => {
-  let places = state.places;
+  // console.log("\x1b[32m", state.places, "\x1b[31m");
+  let places = state.places
+  ? Object.keys(state.places).map((id) => { return state.places[id] })
+  : [];
   let currentUser = state.session.currentUser;
 
   return {

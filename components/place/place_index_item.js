@@ -25,6 +25,11 @@ class PlaceIndexItem extends React.Component {
               this.props.place.name
             }
           </Text>
+          <Text style={{ fontSize: 20 }}>
+            {
+              this.props.place.address
+            }
+          </Text>
         </View>
     )
   }

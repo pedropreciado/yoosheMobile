@@ -39,7 +39,10 @@ class PlaceIndexItem extends React.Component {
                 fontSize: 40,
                 color: 'white'
                 }}>
-              { name }
+              { name.length < 15 
+                ? name
+                : name.slice(0, 14) + '...'
+              }
               </Text>
               
               <Text 
@@ -55,7 +58,11 @@ class PlaceIndexItem extends React.Component {
                 fontSize: 30,
                 color: 'white' 
               }}>
-              { busyPercentage + '%' + ' full'}
+              
+              { isOpen
+              ? busyPercentage + '%' + ' full'
+              : 'Closed'
+            }
               </Text>
 
               <View style={{

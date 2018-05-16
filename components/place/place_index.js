@@ -32,19 +32,27 @@ class PlaceIndex extends React.Component {
           flex: 1
         }}>
         <View style={{
-            backgroundColor: 'red',
+            backgroundColor: '#141515',
             height: 50,
             alignItems: 'center',
             justifyContent: 'center'
           }}>
-          <Text style={{ fontSize: 20 }}>
+          <Text style={{ 
+            fontSize: 20, 
+            color: 'white' 
+            }}>
             place index
           </Text>
         </View>
-
-          <FlatList style={{
+          
+          <FlatList 
+          style={{
             flex: 1,
-            backgroundColor: 'pink'
+            backgroundColor: '#424242'
+          }}
+          contentContainerStyle={{
+            alignItems: 'center',
+            width: '100%'
           }}
           data={this.props.places}
           renderItem={({ item }) => {

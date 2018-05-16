@@ -16,7 +16,14 @@ const mapStateToProps = (state) => {
 
   return {
     currentUser,
-    places
+    places: places.sort((a, b) => {
+      if (!a.isOpen) {
+        return 1;
+      } else if (!b.isOpen) {
+        return -1;
+      }
+      return b.busyPercentage - a.busyPercentage
+    }),
   }
 }
 

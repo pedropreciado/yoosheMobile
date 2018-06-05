@@ -4,9 +4,24 @@ import {
   Text
 } from 'react-native';
 
+import PlaceShow from './place_show';
+
 class PlaceIndexItem extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      pressed: false  
+    }
+
+    this._onPress = this._onPress.bind(this);
+  }
+
+  _onPress() {
+    console.log('reached')
+    let pressed = !this.state.pressed;
+    
+    this.setState({ pressed });
   }
   
   render() {
@@ -20,17 +35,18 @@ class PlaceIndexItem extends React.Component {
 
     return (
       <View style={{
+        flex: this.state.pressed ? .2 : .1,
         flexDirection: 'row',
         paddingVertical: 10,
         marginTop: 10,
         backgroundColor: isOpen ? 'rgb(76, 217, 100)' : 'rgb(255, 59, 48)',
-        height: 150,
+        height: 120,
         borderRadius: 5,
         minWidth: '90%',
-
-      }}>
+      }}
+      onPress={this._onPress}
+      >
           <View style={{ 
-            flex: 1, 
             justifyContent: 'space-between',
             paddingLeft: 10
             }}>
@@ -60,7 +76,7 @@ class PlaceIndexItem extends React.Component {
               }}>
               
               { isOpen
-              ? busyPercentage + '%' + ' full'
+              ? busyPercentage + '%' + ' busy'
               : 'Closed'
             }
               </Text>
